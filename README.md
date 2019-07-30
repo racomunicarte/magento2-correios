@@ -7,7 +7,7 @@ Modulo de correios para magento 2
 ### Via Composer
 
 ```sh
-composer require bomagelhaes/magento2-correios
+composer require bomagalhaes/magento2-correios
 php -f bin/magento module:enable --clear-static-content Bomagalhaes_Magento2Correios
 php -f bin/magento setup:upgrade
 ```
