@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @copyright Copyright (c) 2015 X.commerce, Inc. (http://www.magentocommerce.com)
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Bomagalhaes\Magento2Correios\Api\ConsultaInterface" type="Bomagalhaes\Magento2Correios\Model\Consulta" />
+    <!--<type name="Magento\Shipping\Block\Adminhtml\View">-->
+        <!--<plugin name="bomagalhaes-correios-view" type="Bomagalhaes\Magento2Correios\Plugin\Shipping\Block\Adminhtml\View" sortOrder="20"/>-->
+    <!--</type>-->
+    <type name="Bomagalhaes\Magento2Correios\Block\Email">
+        <arguments>
+            <argument name="helper" xsi:type="object">Magento\Shipping\Helper\Data</argument>
+        </arguments>
+    </type>
+    <type name="Bomagalhaes\Magento2Correios\Model\Consulta">
+        <arguments>
+            <argument name="modelRegion" xsi:type="object">Magento\Directory\Model\Region</argument>
+            <argument name="helperSigep" xsi:type="object">Bomagalhaes\Magento2Correios\Helper\Sigep</argument>
+        </arguments>
+    </type>
+    <type name="Bomagalhaes\Magento2Correios\Model\Carrier\Correios">
+        <arguments>
+            <argument name="trackerRequest" xsi:type="object">Bomagalhaes\Magento2Correios\Model\Tracker\Request</argument>
+            <argument name="helper" xsi:type="object">Bomagalhaes\Magento2Correios\Helper\Data</argument>
+            <argument name="helperSigep" xsi:type="object">Bomagalhaes\Magento2Correios\Helper\Sigep</argument>
+        </arguments>
+    </type>
+    <type name="Bomagalhaes\Magento2Correios\Block\Adminhtml\Catalog\Product\Edit\CorreiosLimit">
+        <arguments>
+            <argument name="helper" xsi:type="object">Bomagalhaes\Magento2Correios\Helper\Data</argument>
+        </arguments>
+    </type>
+</config>
